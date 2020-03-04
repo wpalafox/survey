@@ -13,7 +13,19 @@ export default class Form extends Component {
 
     };
     
-    
+    change = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+         
+        });
+
+
+    };
+
+    onSubmit = () => {
+
+        console.log(this.state)
+    }
     
     
     render() {
@@ -27,24 +39,75 @@ export default class Form extends Component {
                         <div className="form-group">
                             <p id="name-p">Full Name</p>
                             <input 
+                            name="fullName"
                             placeholder="Will Palafox" 
                             value={this.state.fullName} 
-                            onChange={e => this.setState({fullName: e.target.value})}  
+                            onChange={e => this.change(e)}  
                             id="name-input" 
                             type="text"/> 
                         </div>
                         
                         <div className="form-group">   
                             <p id="email-p">Account Email</p>
-                            <input id="email-input" type="text"/> 
+                            <input 
+                            name="accountEmail"
+                            placeholder="will@justuno.com"
+                            value={this.state.accountEmail}
+                            onChange={e => this.change(e)}
+                            id="email-input" 
+                            type="text"/> 
                         </div>
                         
                         <div className="form-group">   
                             <p id="organization-p">Organization Name</p>
-                            <input id="organization-input" type="text"/> 
+                            <input 
+                            name="orgName"
+                            value={this.state.orgName}
+                            onChange={e => this.change(e)}
+                            placeholder="Justuno"
+                            id="organization-input" 
+                            type="text"/> 
                         </div>
-                        
-                        <div className="form-group">
+                  
+                       <div className="form-group"> 
+                            <p id="promotion-p">Promotion ID</p>
+                            <input 
+                            name="promoID"
+                            value={this.state.promoID}
+                            onChange={e => this.change(e)}
+                            placeholder="12345"
+                            id="promotion-input" 
+                            type="text"/> 
+                        <div/>
+                    
+                        <div className="form-group"> 
+                            <p id="issue-p">Detailed Description of Issue</p>
+                            <textarea 
+                            name="descIssue"
+                            placeholder="My promotion will not fire"
+                            id="issue-input"
+                            value={this.state.descIssue}
+                            onChange={e => this.change(e)}/> 
+                        </div>
+                    
+                </div>
+
+                <button type="button" class="btn btn-danger" onClick={() => this.onSubmit()}>Submit</button>
+            
+            </div>  
+        </div>
+    </form>   
+        )
+    }
+}
+
+
+
+
+
+/*
+
+ <div className="form-group">
                             <label for="labelForTypeOfIssue">Type Of Issue</label>
                             <select class="form-control" id="formcontrolselect">
                                 <option>Design Canvas</option>
@@ -55,23 +118,4 @@ export default class Form extends Component {
                             </select>
                         </div>
 
-                        <div className="form-group"> 
-                            <p id="promotion-p">Promotion ID</p>
-                            <input id="promotion-input" type="text"/> 
-                        <div/>
-                    
-                        <div className="form-group"> 
-                            <p id="issue-p">Detailed Description of Issue</p>
-                            <textarea id="issue-input"/> 
-                        </div>
-                    
-                </div>
-
-                <button type="button" class="btn btn-danger">Submit</button>
-            
-            </div>  
-        </div>
-    </form>   
-        )
-    }
-}
+*/ 
