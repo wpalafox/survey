@@ -7,7 +7,6 @@ export default class Form extends Component {
         fullName: '',
         accountEmail: '',
         orgName: '',
-        typeIssue: '',
         promoID: '',
         descIssue: '',
 
@@ -22,9 +21,18 @@ export default class Form extends Component {
 
     };
 
-    onSubmit = () => {
-
+    onSubmit = e => {
+        this.props.onSubmit(this.state)
         console.log(this.state)
+
+        this.setState({
+            fullName: '',
+            accountEmail: '',
+            orgName: '',
+            promoID: '',
+            descIssue: '',
+
+        });
     }
     
     
